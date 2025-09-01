@@ -2,92 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MyBudget Dark Fintech Design System - Bloomberg Terminal Inspired */
+/* MyBudget Light Minimalist Design System - Soft Neutrals & Breathing Room */
 
 @layer base {
   :root {
-    /* Core Dark Theme - Always Dark */
-    --background: 225 15% 6%;
-    --surface: 225 13% 8%;
-    --surface-elevated: 225 13% 10%;
-    --foreground: 215 25% 95%;
+    /* Core Light Theme - Soft Neutrals */
+    --background: 20 6% 97%;
+    --surface: 20 4% 99%;
+    --surface-elevated: 0 0% 100%;
+    --foreground: 240 10% 12%;
     
     /* Cards & Containers */
-    --card: 225 13% 8%;
-    --card-elevated: 225 13% 12%;
-    --card-foreground: 215 25% 95%;
+    --card: 0 0% 100%;
+    --card-elevated: 0 0% 100%;
+    --card-foreground: 240 10% 12%;
+    --card-border: 220 8% 90%;
     
-    /* Interactive Elements */
-    --primary: 213 94% 68%;
-    --primary-foreground: 225 15% 6%;
-    --primary-hover: 213 94% 72%;
+    /* Interactive Elements - Muted Teal */
+    --primary: 174 62% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 174 62% 42%;
+    --primary-light: 174 32% 92%;
     
-    /* Secondary & Muted */
-    --secondary: 225 12% 15%;
-    --secondary-foreground: 215 15% 75%;
-    --muted: 225 12% 12%;
-    --muted-foreground: 215 10% 60%;
+    /* Secondary - Warm Gray */
+    --secondary: 25 4% 93%;
+    --secondary-foreground: 240 8% 18%;
+    --secondary-hover: 25 4% 88%;
     
-    /* Accent Colors */
-    --accent: 225 12% 15%;
-    --accent-foreground: 215 25% 90%;
+    /* Muted Colors */
+    --muted: 25 3% 95%;
+    --muted-foreground: 240 4% 46%;
+    --muted-dark: 25 3% 88%;
     
-    /* Status Colors */
-    --success: 142 76% 36%;
-    --success-foreground: 355 100% 97%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 225 15% 6%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 355 100% 97%;
+    /* Accent - Soft Green */
+    --accent: 142 32% 85%;
+    --accent-foreground: 240 10% 12%;
+    --accent-strong: 142 52% 55%;
+    
+    /* Status Colors - Soft & Readable */
+    --success: 142 52% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 32% 92%;
+    
+    --warning: 38 82% 55%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 52% 92%;
+    
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 42% 94%;
     
     /* Borders & Inputs */
-    --border: 225 12% 18%;
-    --border-elevated: 225 12% 22%;
-    --input: 225 12% 12%;
-    --ring: 213 94% 68%;
+    --border: 220 8% 88%;
+    --border-strong: 220 8% 80%;
+    --input: 0 0% 100%;
+    --input-border: 220 8% 85%;
+    --ring: 174 62% 47%;
     
     /* Financial Data Colors */
-    --positive: 142 76% 36%;
-    --negative: 0 84% 60%;
-    --neutral: 215 10% 60%;
+    --positive: 142 52% 45%;
+    --negative: 0 72% 58%;
+    --neutral: 240 4% 60%;
     
-    /* Chart Colors */
-    --chart-1: 213 94% 68%;
-    --chart-2: 142 76% 36%;
-    --chart-3: 38 92% 50%;
-    --chart-4: 280 100% 70%;
-    --chart-5: 0 84% 60%;
-    --chart-6: 47 96% 89%;
-    --chart-7: 185 57% 50%;
+    /* Chart Colors - Soft & Distinct */
+    --chart-1: 174 62% 47%;  /* Teal */
+    --chart-2: 142 52% 45%;  /* Green */
+    --chart-3: 38 82% 55%;   /* Orange */
+    --chart-4: 262 52% 65%;  /* Purple */
+    --chart-5: 0 72% 58%;    /* Red */
+    --chart-6: 200 82% 55%;  /* Blue */
+    --chart-7: 320 52% 65%;  /* Pink */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(213 94% 68%), hsl(225 13% 12%));
-    --gradient-surface: linear-gradient(180deg, hsl(225 13% 10%), hsl(225 13% 8%));
-    --gradient-card: linear-gradient(180deg, hsl(225 13% 12%), hsl(225 13% 8%));
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 24px 0 rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 20px hsl(213 94% 68% / 0.3);
+    /* Shadows - Subtle */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
     
     /* Transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     /* Spacing & Layout */
-    --radius: 0.5rem;
-    --radius-lg: 0.75rem;
-    
-    /* Sidebar Variables */
-    --sidebar-background: 225 15% 5%;
-    --sidebar-foreground: 215 25% 85%;
-    --sidebar-primary: 213 94% 68%;
-    --sidebar-primary-foreground: 225 15% 6%;
-    --sidebar-accent: 225 12% 12%;
-    --sidebar-accent-foreground: 215 25% 90%;
-    --sidebar-border: 225 12% 15%;
-    --sidebar-ring: 213 94% 68%;
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
   }
 }
 

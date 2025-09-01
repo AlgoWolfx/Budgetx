@@ -48,7 +48,7 @@ export const AddExpenseModal = ({
   });
   const [isLoading, setIsLoading] = useState(false);
   
-  const { addExpense, updateExpense } = useBudgetStore();
+  const { addExpense, updateExpense, selectedMonth } = useBudgetStore();
 
   useEffect(() => {
     if (editingExpense) {
@@ -59,16 +59,19 @@ export const AddExpenseModal = ({
         amount: editingExpense.amount.toString(),
       });
     } else {
-      // Set today's date as default
+      // Set default date to current selected month
       const today = new Date().toISOString().split('T')[0];
+      const [currentYear, currentMonth] = selectedMonth.split('-');
+      const monthStartDate = `${currentYear}-${currentMonth}-01`;
+      
       setFormData({
-        date: today,
+        date: today >= monthStartDate ? today : monthStartDate,
         category: '',
         description: '',
         amount: '',
       });
     }
-  }, [editingExpense, isOpen]);
+  }, [editingExpense, isOpen, selectedMonth]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,59 +112,62 @@ export const AddExpenseModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-card-elevated border-border-elevated max-w-md">
+      <DialogContent className="bg-card-elevated border-card-border max-w-md rounded-xl">
         <DialogHeader>
-          <DialogTitle className="text-foreground">
+          <DialogTitle className="text-foreground text-xl">
             {editingExpense ? 'Edit Expense' : 'Add New Expense'}
           </DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="date" className="text-foreground">Date</Label>
+              <Label htmlFor="date" className="text-foreground font-medium">Date</Label>
               <Input
                 id="date"
                 type="date"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="bg-input border-border text-foreground"
+                className="bg-input border-input-border text-foreground rounded-lg"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="amount" className="text-foreground">Amount</Label>
-              <Input
-                id="amount"
-                type="number"
-                step="0.01"
-                placeholder="0.00"
-                value={formData.amount}
-                onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                className="bg-input border-border text-foreground"
-                required
-              />
+              <Label htmlFor="amount" className="text-foreground font-medium">Amount</Label>
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">$</span>
+                <Input
+                  id="amount"
+                  type="number"
+                  step="0.01"
+                  placeholder="0.00"
+                  value={formData.amount}
+                  onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+                  className="pl-8 bg-input border-input-border text-foreground rounded-lg"
+                  required
+                />
+              </div>
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="category" className="text-foreground">Category</Label>
+            <Label htmlFor="category" className="text-foreground font-medium">Category</Label>
             <Select 
               value={formData.category} 
               onValueChange={(value: ExpenseCategory) => 
                 setFormData({ ...formData, category: value })
               }
             >
-              <SelectTrigger className="bg-input border-border text-foreground">
-                <SelectValue placeholder="Select a category" />
+              <SelectTrigger className="bg-input border-input-border text-foreground rounded-lg">
+                <SelectValue placeholder="Choose a category" />
               </SelectTrigger>
-              <SelectContent className="bg-card-elevated border-border">
+              <SelectContent className="bg-card-elevated border-border rounded-lg">
                 {categories.map((category) => (
                   <SelectItem 
                     key={category} 
                     value={category}
-                    className="text-foreground hover:bg-muted focus:bg-muted"
+                    className="text-foreground hover:bg-muted focus:bg-muted rounded-md"
                   >
                     {category}
                   </SelectItem>
@@ -171,13 +177,13 @@ export const AddExpenseModal = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description" className="text-foreground">Description</Label>
+            <Label htmlFor="description" className="text-foreground font-medium">Description</Label>
             <Textarea
               id="description"
               placeholder="What did you spend money on?"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="bg-input border-border text-foreground resize-none"
+              className="bg-input border-input-border text-foreground resize-none rounded-lg"
               rows={3}
               required
             />
@@ -188,7 +194,7 @@ export const AddExpenseModal = ({
               type="button"
               variant="outline"
               onClick={onClose}
-              className="flex-1 border-border text-foreground hover:bg-muted"
+              className="flex-1 border-border text-foreground hover:bg-muted rounded-lg"
               disabled={isLoading}
             >
               Cancel
@@ -196,7 +202,7 @@ export const AddExpenseModal = ({
             <Button
               type="submit"
               disabled={!isFormValid() || isLoading}
-              className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
+              className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground rounded-lg"
             >
               {isLoading 
                 ? 'Saving...' 
