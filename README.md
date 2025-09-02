@@ -1,73 +1,225 @@
-# Welcome to your Lovable project
+# 💰 LifeManagement - Finansal Yönetim Uygulaması
 
-## Project info
+Modern, kullanıcı dostu ve responsive bir kişisel finans yönetim uygulaması. React, TypeScript ve modern web teknolojileri ile geliştirilmiştir.
 
-**URL**: https://lovable.dev/projects/3007f267-49bf-4e8d-b855-948261133f69
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/1f2937/ffffff?text=LifeManagement+Dashboard+Demo" alt="LifeManagement Dashboard Demo" width="800">
+  <p><em>Modern ve kullanıcı dostu arayüz</em></p>
+</div>
 
-## How can I edit this code?
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?logo=vite)
+![Build Size](https://img.shields.io/badge/Build_Size-951KB-green)
+![Gzip Size](https://img.shields.io/badge/Gzip_Size-261KB-brightgreen)
 
-There are several ways of editing your application.
+## 🌟 Özellikler
 
-**Use Lovable**
+### 💡 Temel Özellikler
+- **📊 Gelir & Gider Takibi**: Aylık gelir ve giderlerinizi detaylı olarak takip edin
+- **📈 Grafiksel Analiz**: Harcama kategorileri ve zaman bazlı analiz grafikleri
+- **📱 Mobil Uyumlu**: Tüm cihazlarda mükemmel kullanıcı deneyimi
+- **🌓 Tema Desteği**: Açık/Koyu tema geçişi
+- **💶 Euro Desteği**: Türkiye lokali ile Euro para birimi formatı
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3007f267-49bf-4e8d-b855-948261133f69) and start prompting.
+### 🚀 Gelişmiş Özellikler
+- **⚡ Hızlı Gider Girişi**: Önceden tanımlı şablonlarla hızlı işlem girişi
+- **📊 Kategori Bazlı Analiz**: Detaylı kategori performans analizleri
+- **📅 Aylık Raporlama**: Kapsamlı aylık finansal raporlar
+- **💾 Yerel Depolama**: Verileriniz güvenli şekilde yerel olarak saklanır
+- **🔒 Şifre Koruması**: Uygulamaya güvenli erişim
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎨 Kullanıcı Deneyimi
+- **🎯 Temiz Arayüz**: Modern ve minimal tasarım
+- **⚡ Hızlı Performans**: Vite ile optimize edilmiş build süreci
+- **📱 Responsive Tasarım**: Mobil-öncelikli yaklaşım
+- **🎨 ShadCN UI**: Profesyonel UI bileşenleri
 
-**Use your preferred IDE**
+## 🛠️ Teknoloji Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Frontend
+- **React 18.3.1** - Modern UI kütüphanesi
+- **TypeScript** - Tip güvenli geliştirme
+- **Vite** - Hızlı build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **ShadCN UI** - Modern UI bileşen kütüphanesi
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### State Management & Routing
+- **Zustand** - Lightweight state management
+- **React Router DOM** - Client-side routing
+- **React Query** - Server state management
 
-Follow these steps:
+### Charts & Visualization
+- **Recharts** - React chart library
+- **Lucide React** - Modern icon library
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Development Tools
+- **ESLint** - Code linting
+- **TypeScript ESLint** - TypeScript specific linting
+- **PostCSS & Autoprefixer** - CSS processing
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Kurulum
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Gereksinimler
+- Node.js (v18 veya üzeri)
+- npm veya yarn package manager
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Projeyi Klonlama
+```bash
+git clone https://github.com/kullaniciadi/lifemanagement-budget.git
+cd lifemanagement-budget
 ```
 
-**Edit a file directly in GitHub**
+### Bağımlılıkları Yükleme
+```bash
+npm install
+# veya
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Geliştirme Sunucusunu Başlatma
+```bash
+npm run dev
+# veya
+yarn dev
+```
 
-**Use GitHub Codespaces**
+Uygulama `http://localhost:5173` adresinde çalışacaktır.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📦 Build ve Deploy
 
-## What technologies are used for this project?
+### Production Build
+```bash
+npm run build
+# veya
+yarn build
+```
 
-This project is built with:
+### Preview
+```bash
+npm run preview
+# veya
+yarn preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎯 Kullanım
 
-## How can I deploy this project?
+### İlk Giriş
+1. Uygulamayı açın
+2. Giriş şifresi: `budget123`
+3. Ana dashboard'a yönlendirileceksiniz
 
-Simply open [Lovable](https://lovable.dev/projects/3007f267-49bf-4e8d-b855-948261133f69) and click on Share -> Publish.
+### Temel İşlemler
+1. **Gelir Ekleme**: Üst menüden "Gelir Yönetimi"ne tıklayın
+2. **Gider Ekleme**: "Gider Ekle" butonunu kullanın veya hızlı giriş panelini kullanın
+3. **Raporları İnceleme**: "Yıllık Rapor" butonuna tıklayın
+4. **Kategori Analizi**: Ana sayfadaki kategori kartlarına tıklayın
 
-## Can I connect a custom domain to my Lovable project?
+### Şablonlar
+Sık kullanılan giderler için önceden tanımlı şablonlar:
+- 🚬 Sigara
+- 📄 Sigara Kağıdı
+- 🏠 Kira
+- 🛒 Market Alışverişi
+- 📱 İnternet/Telefon
+- 💪 Spor Salonu
+- 📺 Netflix/Abonelik
 
-Yes, you can!
+## 📁 Proje Yapısı
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```
+src/
+├── components/          # React bileşenleri
+│   ├── ui/             # ShadCN UI bileşenleri
+│   ├── AddExpenseModal.tsx
+│   ├── CategoryBadges.tsx
+│   ├── Charts.tsx
+│   ├── ExpenseTable.tsx
+│   └── ...
+├── hooks/              # Custom React hooks
+├── lib/                # Utility fonksiyonları
+├── pages/              # Sayfa bileşenleri
+│   ├── Dashboard.tsx
+│   ├── AnnualReport.tsx
+│   └── NotFound.tsx
+├── store/              # Zustand state management
+├── types/              # TypeScript tip tanımları
+└── App.tsx             # Ana uygulama bileşeni
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🎨 Tema ve Tasarım
+
+### Tasarım Sistemi
+- **Renkler**: CSS custom properties ile tema desteği
+- **Tipografi**: Inter font family
+- **Spacing**: Tailwind CSS spacing scale
+- **Animations**: Tailwind CSS animate utilities
+
+### Responsive Breakpoints
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
+
+## 🔧 Yapılandırma
+
+### Özelleştirme
+- `tailwind.config.ts` - Tailwind CSS yapılandırması
+- `vite.config.ts` - Vite build yapılandırması
+- `tsconfig.json` - TypeScript yapılandırması
+
+### Ortam Değişkenleri
+Proje şu anda ortam değişkeni gerektirmiyor, tüm veriler yerel depolamada saklanıyor.
+
+## 🤝 Katkıda Bulunma
+
+1. Bu repo'yu fork edin
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+4. Branch'i push edin (`git push origin feature/amazing-feature`)
+5. Pull Request oluşturun
+
+### Kod Standartları
+- ESLint kurallarına uyun
+- TypeScript strict mode kullanın
+- Bileşenleri küçük ve yeniden kullanılabilir yapın
+- Responsive tasarım prensiplerine uyun
+
+## 📝 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
+## 🐛 Bilinen Sorunlar
+
+- Şu anda veriler yalnızca yerel depolamada saklanıyor
+- Çoklu kullanıcı desteği bulunmuyor
+- Veri yedekleme özelliği mevcut değil
+
+## 🔮 Gelecek Özellikler
+
+- [ ] Cloud sync desteği
+- [ ] Çoklu para birimi desteği
+- [ ] Veri export/import özelliği
+- [ ] Kategori özelleştirme
+- [ ] Bütçe hedefleri ve uyarıları
+- [ ] PWA desteği
+
+## 📞 İletişim
+
+Sorular, öneriler veya geri bildirimler için:
+- GitHub Issues: [Issues](https://github.com/kullaniciadi/lifemanagement-budget/issues)
+- Email: kullanici@email.com
+
+## 🙏 Teşekkürler
+
+Bu projeyi mümkün kılan açık kaynak kütüphanelere ve topluluğa teşekkürler:
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ShadCN UI](https://ui.shadcn.com/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [Recharts](https://recharts.org/)
+
+---
+
+**Not**: Bu uygulama kişisel finans yönetimi için tasarlanmıştır ve profesyonel finansal danışmanlık yerine geçmez.

@@ -3,109 +3,73 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useBudgetStore } from '@/store/budgetStore';
-import { DollarSign, Check, Edit } from 'lucide-react';
+import { DollarSign, Edit, Settings, TrendingUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { IncomeManagementModal } from './IncomeManagementModal';
 
 export const IncomeInput = () => {
-  const { selectedMonth, getCurrentMonthData, setMonthlyIncome } = useBudgetStore();
-  const [isEditing, setIsEditing] = useState(false);
-  const [tempIncome, setTempIncome] = useState('');
+  const { selectedMonth, getCurrentMonthData, getMonthIncomeEntries } = useBudgetStore();
+  const [showIncomeModal, setShowIncomeModal] = useState(false);
   const { toast } = useToast();
 
   const currentData = getCurrentMonthData();
-
-  useEffect(() => {
-    setTempIncome(currentData.income.toString());
-    setIsEditing(false);
-  }, [selectedMonth, currentData.income]);
-
-  const handleSave = () => {
-    const income = parseFloat(tempIncome);
-    if (isNaN(income) || income < 0) {
-      toast({
-        title: "Invalid amount",
-        description: "Please enter a valid income amount.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setMonthlyIncome(selectedMonth, income);
-    setIsEditing(false);
-    
-    toast({
-      title: "Income updated",
-      description: `Monthly income set to $${income.toFixed(2)}`,
-    });
-  };
-
-  const handleCancel = () => {
-    setTempIncome(currentData.income.toString());
-    setIsEditing(false);
-  };
+  const incomeEntries = getMonthIncomeEntries(selectedMonth);
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('tr-TR', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
     }).format(amount);
   };
 
-  if (isEditing) {
-    return (
-      <div className="flex items-center space-x-3 bg-surface border border-border rounded-lg p-3">
-        <DollarSign className="h-5 w-5 text-muted-foreground" />
-        <div className="flex items-center space-x-2">
-          <Label htmlFor="income" className="text-sm font-medium text-foreground whitespace-nowrap">
-            Monthly Income:
-          </Label>
-          <Input
-            id="income"
-            type="number"
-            step="0.01"
-            value={tempIncome}
-            onChange={(e) => setTempIncome(e.target.value)}
-            className="w-32 h-8 bg-input border-input-border"
-            placeholder="0.00"
-            autoFocus
-          />
-          <Button 
-            size="sm" 
-            onClick={handleSave}
-            className="h-8 px-3 bg-primary hover:bg-primary-hover text-primary-foreground"
-          >
-            <Check className="h-3 w-3" />
-          </Button>
-          <Button 
-            size="sm" 
-            variant="outline" 
-            onClick={handleCancel}
-            className="h-8 px-3 border-border text-foreground"
-          >
-            Cancel
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  const getIncomeStatusText = () => {
+    if (incomeEntries.length === 0) {
+      return 'Gelir girişi yok';
+    } else if (incomeEntries.length === 1) {
+      return '1 gelir girişi';
+    } else {
+      return `${incomeEntries.length} gelir girişi`;
+    }
+  };
 
   return (
-    <div className="flex items-center space-x-3 bg-surface border border-border rounded-lg p-3 hover:bg-surface-elevated transition-colors">
-      <DollarSign className="h-5 w-5 text-primary" />
-      <div className="flex items-center space-x-2">
-        <span className="text-sm font-medium text-muted-foreground">Monthly Income:</span>
-        <span className="font-semibold text-foreground">
-          {formatCurrency(currentData.income)}
-        </span>
-        <Button
-          size="sm"
-          variant="ghost"
-          onClick={() => setIsEditing(true)}
-          className="h-8 px-2 text-muted-foreground hover:text-foreground"
-        >
-          <Edit className="h-3 w-3" />
-        </Button>
+    <>
+      <div 
+        className="flex items-center space-x-3 bg-card border border-border rounded-lg p-3 hover:border-border/80 transition-colors duration-200 cursor-pointer"
+        onClick={() => setShowIncomeModal(true)}
+      >
+        <div className="flex items-center justify-center w-10 h-10 bg-success/10 rounded-lg">
+          <DollarSign className="h-5 w-5 text-success" />
+        </div>
+        
+        <div className="flex-1">
+          <div className="flex items-center space-x-2">
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+              Aylık Gelir
+            </span>
+            <span className="text-lg font-semibold text-foreground">
+              {formatCurrency(currentData.income)}
+            </span>
+          </div>
+          
+          <div className="flex items-center space-x-2 mt-1">
+            <TrendingUp className="h-3 w-3 text-success" />
+            <span className="text-xs text-muted-foreground">
+              {getIncomeStatusText()}
+            </span>
+          </div>
+        </div>
+        
+        <div className="p-1.5 rounded-md bg-muted hover:bg-muted/80 transition-colors duration-200">
+          <Settings className="h-3 w-3 text-muted-foreground" />
+        </div>
       </div>
-    </div>
+
+      <IncomeManagementModal
+        isOpen={showIncomeModal}
+        onClose={() => setShowIncomeModal(false)}
+        month={selectedMonth}
+      />
+    </>
   );
 };

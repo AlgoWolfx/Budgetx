@@ -1,0 +1,76 @@
+name: feature_request
+description: Yeni bir özellik öner
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Özellik önerisi için teşekkürler! Lütfen aşağıdaki bilgileri doldurun.
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Özellik Açıklaması
+      description: Önerdiğiniz özelliği açık ve net bir şekilde tanımlayın.
+      placeholder: Bu özellik ne yapacak?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Çözdüğü Problem
+      description: Bu özellik hangi problemi çözüyor?
+      placeholder: Şu anda hangi zorluklarla karşılaşıyorsunuz?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Önerilen Çözüm
+      description: Bu özelliğin nasıl çalışmasını istiyorsunuz?
+      placeholder: Detaylı bir açıklama yapın
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatif Çözümler
+      description: Düşündüğünüz başka çözümler var mı?
+      placeholder: Başka hangi yaklaşımları değerlendirdiniz?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Öncelik
+      description: Bu özellik sizin için ne kadar önemli?
+      options:
+        - Düşük
+        - Orta
+        - Yüksek
+        - Kritik
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Uygulama Alanı
+      description: Bu özellik hangi alanları etkiler?
+      options:
+        - label: UI/UX
+        - label: Backend/State Management
+        - label: Charts/Analytics
+        - label: Mobile Responsiveness
+        - label: Performance
+        - label: Accessibility
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Ek Bilgiler
+      description: Bu özellik hakkında başka bir şey var mı?
+      placeholder: Mockup'lar, referanslar, örnekler...

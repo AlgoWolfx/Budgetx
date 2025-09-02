@@ -1,0 +1,84 @@
+name: bug_report
+description: Bir hata bildirimi oluştur
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hata bildirimi için teşekkürler! Lütfen aşağıdaki bilgileri doldurun.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Hata Açıklaması
+      description: Karşılaştığınız hatayı açık ve net bir şekilde tanımlayın.
+      placeholder: Ne olması bekliyordu ve ne oldu?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Hatayı Yeniden Oluşturma Adımları
+      description: Hatayı yeniden oluşturmak için adım adım talimatlar
+      placeholder: |
+        1. Şu sayfaya git '...'
+        2. Şu elemana tıkla '....'
+        3. Aşağı kaydır '....'
+        4. Hatayı gör
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen Davranış
+      description: Ne olmasını bekliyordunuz?
+      placeholder: Beklenen davranışı açıklayın
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Ekran Görüntüleri
+      description: Eğer uygunsa, sorunu açıklamaya yardımcı olacak ekran görüntüleri ekleyin.
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Tarayıcı
+      description: Hangi tarayıcıda sorun yaşıyorsunuz?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Diğer
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: İşletim Sistemi
+      description: Hangi işletim sistemini kullanıyorsunuz?
+      placeholder: "örn: Windows 11, macOS 13, Ubuntu 22.04"
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Cihaz
+      description: Hangi cihazı kullanıyorsunuz?
+      placeholder: "örn: Desktop, iPhone 13, Samsung Galaxy S22"
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Ek Bilgiler
+      description: Bu sorun hakkında başka bir şey var mı?
+      placeholder: Ek açıklamalar...

@@ -1,8 +1,33 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "lifemanagement-budget",
+  "version": "1.0.0",
+  "description": "Modern, kullanıcı dostu ve responsive bir kişisel finans yönetim uygulaması",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "author": "LifeManagement Team",
+  "license": "MIT",
+  "homepage": "https://github.com/kullaniciadi/lifemanagement-budget",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kullaniciadi/lifemanagement-budget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kullaniciadi/lifemanagement-budget/issues"
+  },
+  "keywords": [
+    "budget",
+    "finance",
+    "expense-tracker",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "shadcn-ui",
+    "zustand",
+    "responsive",
+    "turkish",
+    "euro"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",

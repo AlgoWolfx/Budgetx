@@ -13,15 +13,15 @@ export const SummaryCards = () => {
   const monthlyData = getCurrentMonthData();
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('tr-TR', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'EUR',
     }).format(amount);
   };
 
   const cards = [
     {
-      title: 'Monthly Income',
+      title: 'Aylık Gelir',
       value: formatCurrency(monthlyData.income),
       icon: DollarSign,
       color: 'text-primary',
@@ -29,7 +29,7 @@ export const SummaryCards = () => {
       borderColor: 'border-primary/20',
     },
     {
-      title: 'Total Expenses',
+      title: 'Toplam Giderler',
       value: formatCurrency(monthlyData.totalExpenses),
       icon: TrendingDown,
       color: 'text-destructive',
@@ -37,7 +37,7 @@ export const SummaryCards = () => {
       borderColor: 'border-destructive/20',
     },
     {
-      title: 'Remaining Balance',
+      title: 'Kalan Bakiye',
       value: formatCurrency(monthlyData.remainingBalance),
       icon: TrendingUp,
       color: monthlyData.remainingBalance >= 0 ? 'text-success' : 'text-destructive',
@@ -45,7 +45,7 @@ export const SummaryCards = () => {
       borderColor: monthlyData.remainingBalance >= 0 ? 'border-success/20' : 'border-destructive/20',
     },
     {
-      title: 'Savings Rate',
+      title: 'Tasarruf Oranı',
       value: `${monthlyData.savingsRate.toFixed(1)}%`,
       icon: PiggyBank,
       color: monthlyData.savingsRate >= 20 

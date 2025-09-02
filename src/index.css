@@ -88,6 +88,72 @@
     --radius-lg: 1rem;
     --radius-xl: 1.5rem;
   }
+
+  .dark {
+    /* Core Dark Theme - Maintaining Design Consistency */
+    --background: 240 10% 8%;
+    --surface: 240 8% 12%;
+    --surface-elevated: 240 6% 16%;
+    --foreground: 0 0% 95%;
+    
+    /* Cards & Containers */
+    --card: 240 6% 14%;
+    --card-elevated: 240 4% 18%;
+    --card-foreground: 0 0% 95%;
+    --card-border: 240 6% 22%;
+    
+    /* Interactive Elements - Same Teal, Adjusted */
+    --primary: 174 62% 52%;
+    --primary-foreground: 240 10% 8%;
+    --primary-hover: 174 62% 57%;
+    --primary-light: 174 32% 15%;
+    
+    /* Secondary - Dark Gray */
+    --secondary: 240 4% 18%;
+    --secondary-foreground: 0 0% 90%;
+    --secondary-hover: 240 4% 22%;
+    
+    /* Muted Colors */
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+    --muted-dark: 240 4% 12%;
+    
+    /* Accent - Darker Green */
+    --accent: 142 32% 20%;
+    --accent-foreground: 0 0% 95%;
+    --accent-strong: 142 52% 60%;
+    
+    /* Status Colors - Darker Versions */
+    --success: 142 52% 50%;
+    --success-foreground: 240 10% 8%;
+    --success-light: 142 32% 15%;
+    
+    --warning: 38 82% 60%;
+    --warning-foreground: 240 10% 8%;
+    --warning-light: 38 52% 15%;
+    
+    --destructive: 0 72% 63%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 42% 15%;
+    
+    /* Borders & Inputs */
+    --border: 240 6% 20%;
+    --border-strong: 240 6% 25%;
+    --input: 240 4% 16%;
+    --input-border: 240 6% 24%;
+    --ring: 174 62% 52%;
+    
+    /* Financial Data Colors - Consistent */
+    --positive: 142 52% 50%;
+    --negative: 0 72% 63%;
+    --neutral: 240 5% 65%;
+    
+    /* Shadows - Darker */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+  }
 }
 
 @layer base {
@@ -97,5 +163,67 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 2px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 2px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+  
+  /* Enhanced Scrollbar for Modals */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.4);
+  }
+  
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thumb-border::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+  }
+  
+  .scrollbar-thumb-border::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.3);
+  }
+  
+  /* Remove number input spinners for currency fields */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 }

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "@/components/Login";
 import { Dashboard } from "@/pages/Dashboard";
 import { useBudgetStore } from "@/store/budgetStore";
+import { ThemeProvider } from "@/hooks/use-theme";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,21 +16,23 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          {!isAuthenticated ? (
-            <Login />
-          ) : (
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          )}
-        </BrowserRouter>
-      </TooltipProvider>
+      <ThemeProvider defaultTheme="light" storageKey="budget-ui-theme">
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            {!isAuthenticated ? (
+              <Login />
+            ) : (
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            )}
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };
